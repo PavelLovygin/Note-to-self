@@ -18,7 +18,7 @@ public class DialogShowNote extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        View dialogView = inflater.inflate(R.layout.dialog_new_note, null);
+        View dialogView = inflater.inflate(R.layout.dialog_show_note, null);
 
         final TextView textViewImportant = (TextView) dialogView.findViewById(R.id.textViewImportant);
         final TextView textViewTodo = (TextView) dialogView.findViewById(R.id.textViewTodo);
@@ -46,7 +46,7 @@ public class DialogShowNote extends DialogFragment {
                 dismiss();
             }
         });
-
+        builder.setView(dialogView);
         return builder.create();
     }
 

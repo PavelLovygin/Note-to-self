@@ -1,23 +1,24 @@
 package com.example.notetoself;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
-    Note tempNote = new Note();
+    ArrayList<Note> arrayNotes = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +35,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogShowNote dialog = new DialogShowNote();
-                dialog.sendNoteSelected(tempNote);
-                dialog.show(getSupportFragmentManager(), "123");
-            }
-        });
     }
 
     @Override
@@ -68,6 +60,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewNote (Note note) {
-        tempNote = note;
+        arrayNotes.add(note);
     }
 }
