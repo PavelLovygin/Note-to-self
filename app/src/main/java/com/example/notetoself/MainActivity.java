@@ -6,6 +6,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.view.Menu;
@@ -17,7 +21,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Note> arrayNotes = new ArrayList<>();
+    RecyclerView recyclerView;
+    NoteAdapter adapter;
+    ArrayList<Note> notes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        adapter = new NoteAdapter(this, notes);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -60,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewNote (Note note) {
-        arrayNotes.add(note);
+        notes.add(note);
+        adapter.notifyDataSetChanged();
+    }
+
+
+    public void showNote(int index) {
+        DialogShowNote dialog = new DialogShowNote();
+        dialog.sendNoteSelected(notes.get(index));
+        dialog.show(getSupportFragmentManager(), "");
     }
 }
