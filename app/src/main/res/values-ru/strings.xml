@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">На заметку</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="action_add">добавить</string>
+    <string name="title_hint">Заголовок</string>
+    <string name="description_hint">Описание</string>
+    <string name="idea_text">Идея</string>
+    <string name="important_text">Важное</string>
+    <string name="todo_text">Сделать</string>
+    <string name="cancel_button">Отмена</string>
+    <string name="ok_button">Ок</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="theme_title">Темы</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Темная</string>
+
+</resources>
