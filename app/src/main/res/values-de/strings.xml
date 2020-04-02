@@ -18,4 +18,6 @@
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
 
+    <string name="add_new_note">Eine neue Note hinzufügen</string>
+    <string name="your_note">Ihre Notiz</string>
 </resources>

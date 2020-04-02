@@ -18,4 +18,6 @@
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Темная</string>
 
+    <string name="add_new_note" >Добавление новой заметки</string>
+    <string name="your_note">Ваша заметка</string>
 </resources>
